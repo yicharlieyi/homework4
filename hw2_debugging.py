@@ -36,12 +36,15 @@ def recombine(left_arr, right_arr):
     # Merge the two arrays
     while left_index < len(left_arr) and right_index < len(right_arr):
         if left_arr[left_index] < right_arr[right_index]:
+            # These were in the wrong order
             merge_arr.append(left_arr[left_index])
             left_index += 1
         else:
+            # These were in the wrong order
             merge_arr.append(right_arr[right_index])
             right_index += 1
 
+    # while loop makes it easier to understand the iterations
     while left_index < len(left_arr):
         merge_arr.append(left_arr[left_index])
         left_index += 1
