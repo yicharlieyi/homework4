@@ -20,4 +20,4 @@ jobs:
         pip install radon
     - name: Run radon
       run: |
-        radon cc test-error.py --fail-under=8.0
+        radon cc *.py

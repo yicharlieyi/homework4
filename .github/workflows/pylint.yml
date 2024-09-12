@@ -20,4 +20,4 @@ jobs:
         pip install pylint
     - name: Run pylint
       run: |
-        pylint test-error.py --fail-under=8.0
+        pylint *.py --fail-under=8.0
