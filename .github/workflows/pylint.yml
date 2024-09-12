@@ -1,0 +1,23 @@
+name: Pylint Check
+
+
+on:
+  push:  
+    branches:  [ "main" ]
+
+jobs:
+  pylint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.13
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.13.0-rc.1'
+    - name: Install pylint
+      run: |
+        pip install pylint
+    - name: Run pylint
+      run: |
+        pylint test-error.py --fail-under=8.0

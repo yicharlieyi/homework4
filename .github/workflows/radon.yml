@@ -1,0 +1,23 @@
+name: Radon Check
+
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  radon:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.13
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.13.0-rc.1'
+    - name: Install radon
+      run: |
+        pip install radon
+    - name: Run radon
+      run: |
+        radon cc test-error.py --fail-under=8.0

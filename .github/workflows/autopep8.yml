@@ -1,0 +1,22 @@
+name: Autopep8 Check
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  autopep8:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.13
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.13.0-rc.1'
+    - name: Install autopep8
+      run: |
+        pip install autopep8
+    - name: Run autopep8
+      run: |
+        autopep8 --diff --exit-code test-error.py
