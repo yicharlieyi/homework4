@@ -6,6 +6,6 @@ grep -l "sample" dataset1/* | while read file; do
         filesize=$(stat -f%z "$file")
         echo "$file $count $filesize"
     fi
-done | sort -k2,2nr -k3,3nr | gawk '{gsub("file_", "filtered_", $1); print $1, $2, $3}'
+done | sort -k2,2nr -k3,3nr | gawk '{gsub("file_", "filtered_", $1); print $1}'
 
 
